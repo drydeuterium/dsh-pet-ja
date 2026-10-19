@@ -1,0 +1,8 @@
+# 改行コードはリポジトリ内で LF に正規化する
+* text=auto
+
+# フォントはバイナリ扱い
+*.ttf binary
+*.otf binary
+*.woff binary
+*.woff2 binary
