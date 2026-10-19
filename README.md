@@ -125,7 +125,7 @@ dsh plugin --profile desktop add dsh-pet --save-exact   # 入れ直せば素の�
 ## 制約・注意
 
 - `node_modules` を直接書き換える。アップストリームの更新で消える（再適用が必要）
-- アップストリームが日本語対応したら、このリポジトリは不要になる（`dsh-pet` 本体に `ja` 辞書が入れば設定ページは自動で日本語になる）
+- **上流は今のところ他言語対応を考えていない**（[dsh-pet#132](https://github.com/PC2005-cloud/dsh-pet/issues/132) で提案済み → 2026-10-19「DSH 自体が中文/英文のみ」「メニューの動作名はファイル名そのものなので他言語化は簡単ではない」として見送り）。当面はこのパッチが日本語 UI の唯一の手段になる
 - 置換は文字列一致なので、プラグインの実装が大きく変わった版では一部当たらないことがある（その場合は issue か PR で知らせてほしい）
 - ミーム画像に描かれている中国語の文字自体は画像なのでそのまま（説明文だけ日本語化している）
 
@@ -165,6 +165,11 @@ Use your own font with `node apply.mjs --font /path/to/font.ttf` (`.ttf` recomme
 
 Because the patch edits `node_modules`, **re-run `apply.mjs` after upgrading dsh-pet**.
 It is idempotent, and `--dry-run` shows what would change.
+
+Upstream currently has no plans for other languages
+(proposed in [dsh-pet#132](https://github.com/PC2005-cloud/dsh-pet/issues/132); answered 2026-10-19 that DSH itself
+ships only Chinese/English and that menu action names are file names). Until that changes, this patch is the way
+to get a Japanese UI.
 
 License: MIT for the scripts and translation data (see [LICENSE](LICENSE)).
 dsh-pet itself is MIT (assets: non-commercial); Nikumaru font is an M+ FONTS derivative distributed under
